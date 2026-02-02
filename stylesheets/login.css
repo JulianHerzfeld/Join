@@ -1,0 +1,249 @@
+.fontInter {
+    font-family: 'Inter';
+}
+
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255);
+    z-index: 100;
+    animation: fadeOut 0.5s ease forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.loginPageMoveLogo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 274px;
+    z-index: 101;
+    animation: moveLogo 0.5s ease forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes moveLogo {
+    0% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 274px;
+    }
+
+    100% {
+        top: 80px;
+        left: 77px;
+        transform: translate(0, 0);
+        width: 100px;
+    }
+}
+
+.loginPageMainSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loginPageMainContent {
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    max-width: 652px;
+    width: 90%;
+    max-height: 449px;
+    height: 100%;
+    box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loginPageMainContentHeadline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 61px;
+    font-weight: bold;
+    gap: 16px;
+    padding-top: 48px;
+}
+
+.loginPageMainContentSeperator {
+    background-color: #29ABE2;
+    height: 3px;
+    width: 150px;
+    border-radius: 3px;
+}
+
+.loginPageMainContentInputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    max-width: 420px;
+    width: 90%;
+    height: 152px;
+}
+
+.loginInputContainerWithValidation {
+    height: 68px;
+    display: flex;
+    justify-content: center;
+    width: calc(100% + 2px);
+    position: relative;
+}
+
+.loginPageMainContentButtons {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    padding-bottom: 48px;
+}
+
+.loginPageLogInButton {
+    width: 110px;
+    height: 48px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.loginPageGuestLogInButton {
+    width: 177px !important;
+    height: 48px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.loginPageFooter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: 1920px;
+}
+
+.loginPageFooterContent {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    font-size: 16px;
+    gap: 16px;
+}
+
+.loginPageFooterContent button {
+    color: #A8A8A8;
+    font-size: 16px;
+    border-style: unset;
+    background: unset;
+    height: 35px;
+    width: 110px;
+    padding: 0;
+}
+
+.loginPageFooterContent button:hover {
+    cursor: pointer;
+    color: #29ABE2 !important;
+    font-weight: bold;
+    box-shadow: none;
+}
+
+.inputEmailIcon {
+    position: absolute;
+    right: 21px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
+.inputPasswordIcon {
+    position: absolute;
+    right: 21px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
+.inputPersonIcon {
+    position: absolute;
+    right: 21px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
+.inputVisibilityIcon {
+    position: absolute;
+    right: 21px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+}
+
+.inputVisibilityOffIcon {
+    position: absolute;
+    right: 21px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+}
+
+.inputVisibilityIcon:hover {
+    cursor: pointer;
+}
+
+.inputVisibilityOffIcon:hover {
+    cursor: pointer;
+}
+
+.contentLimitation {
+    margin: 0 auto;
+    max-width: 1920px;
+    width: 100%;
+    position: relative;
+}
+
+.loginFormValidationErrorMessage {
+    height: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 16px;
+    color: #E60026;
+}
+
+::placeholder {
+    color: #D1D1D1;
+    opacity: 1;
+}
+
+.inputBorderColorFocus {
+    border: 1px solid #29ABE2 !important;
+}
+
+.inputErrorBorder {
+    border: 1px solid #E60026 !important;
+}

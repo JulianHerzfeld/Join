@@ -1,0 +1,427 @@
+@media (max-width: 1250px) {
+    .contentContainerPadding {
+        padding-left: 60px;
+    }
+}
+
+@media (max-width: 1150px) {
+    .summaryDashboardContainer {
+        gap: 40px;
+    }
+
+    .largeWindowContainer {
+        gap: 30px;
+    }
+
+    .thirdLineText {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .contentContainer {
+        margin-bottom: 100px;
+    }
+
+    .navContainer {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        width: 100%;
+        height: 80px;
+        background-color: #2A3647;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        z-index: 1000;
+        box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+        padding: 0;
+    }
+
+    .navContainerLogo,
+    .navContainerSites {
+        display: none !important;
+    }
+
+    .navContainerMenu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        gap: 0px;
+    }
+
+    .navLine {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        border-radius: 18px;
+        color: rgba(205, 205, 205, 1);
+        cursor: pointer;
+        height: 76px;
+        width: 104px;
+        padding-left: 0;
+        font-size: 14px;
+        font-weight: 400px;
+    }
+
+    .navLine p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 1;
+        color: inherit;
+    }
+
+    .navIcon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .navLine:hover,
+    .navLine.active {
+        background-color: #091931;
+        color: #FFFFFF;
+    }
+
+    .navLine:hover .navIcon,
+    .navLine.active .navIcon {
+        filter: brightness(0) invert(1);
+        width: 24px;
+        height: 24px;
+    }
+
+    #contentContainer,
+    .contentContainer,
+    header {
+        margin-left: 0 !important;
+    }
+
+    #overlaySummaryMobile {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255, 255, 255);
+        z-index: 100;
+        animation: fadeOut 0.5s ease forwards;
+        animation-delay: 1s;
+    }
+
+    .overlaySummaryGreetingsMobile {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .summaryDashboardContainer {
+        justify-content: center;
+    }
+
+    .summaryDashboardContainerRight {
+        display: none;
+    }
+
+    .overlaySummaryGreeting {
+        display: block;
+    }
+
+    #greetingDayTimeMobile {
+        font-size: 36px;
+        font-weight: 400;
+        color: #2A3647;
+    }
+
+    #greetingUserNameMobile {
+        font-size: 47px;
+        font-weight: 700;
+        color: #23A3E9;
+    }
+
+    .responsiveContactsDetailsSection .summaryDashboardContainerLeft {
+        max-width: 396px;
+        padding-inline: 16px;
+    }
+
+    .summaryMainSection .summaryDashboardContainerLeft {
+        max-width: 396px;
+    }
+
+    .contentContainerPadding {
+        padding-top: 48px;
+        padding-bottom: 120px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .contentContainerPadding:has(.summaryMainContent) {
+        padding-left: unset;
+        padding-right: unset;
+        padding-bottom: unset;
+    }
+
+    .summaryMainSection {
+        display: flex;
+        justify-content: center;
+    }
+
+    .summaryMainSection .blueSeparationLine {
+        display: none;
+    }
+
+    .summaryMainSection .blueSeparationLineMobile {
+        display: block;
+        margin-top: 8px;
+    }
+
+    .templteTitle {
+        display: flex;
+        flex-direction: column;
+        align-items: unset;
+        height: unset;
+        gap: 8px;
+    }
+
+    h1 {
+        font-size: 47px;
+    }
+
+    h4 {
+        font-size: 20px;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+    .summaryMainContent {
+        overflow: auto;
+        scrollbar-width: none;
+        width: 100%;
+        max-width: 416px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .summaryDashboard {
+        padding-top: 40px;
+        display: block;
+        /* height: calc(100vh - 200px); */
+        margin-bottom: 100px;
+    }
+
+    .helpIcon {
+        display: none;
+    }
+
+    .headerContainer {
+        height: unset;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .userProfileCirle {
+        width: 34px;
+        height: 34px;
+    }
+
+    .userProfileCirle p {
+        font-size: 16px;
+    }
+
+    .headerMainText {
+        display: none;
+    }
+
+    .headerJoinLogoMobile {
+        display: block;
+        width: 32px;
+        height: 39px;
+    }
+
+    .smallWindows {
+        gap: 24px;
+    }
+
+    .largeWindowContainer {
+        gap: 20px;
+    }
+
+    .summaryDateContainerMobile {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #calenderDate {
+        font-size: 16px;
+    }
+
+    .penIcon,
+    .summaryIcon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .xsmallWindowsContainer {
+        gap: 24px;
+    }
+
+    .xsmallWindows {
+        max-width: 116px;
+        height: 116px;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .summaryPenIconNormal {
+        display: none;
+    }
+
+    .summaryIconMobile {
+        display: block;
+    }
+
+    .smallWindowContainer:hover .summaryIconMobile {
+        content: url(/assets/icons/penicon_mobile_white.svg);
+    }
+
+    .summaryNumber {
+        font-size: 47px;
+    }
+
+    .summaryTextMobile {
+        font-size: 14px;
+        margin-block-start: 0;
+        margin-block-end: 0;
+    }
+
+    .greySeparationLine {
+        height: 68px;
+    }
+
+    .smallWindowContainer {
+        max-width: 186px;
+        height: 110px;
+    }
+
+    .largeWindowContainer {
+        height: 110px;
+    }
+
+    .alignArrowLeft {
+        display: flex;
+        justify-content: flex-end;
+        cursor: pointer;
+    }
+
+    .card {
+        margin-left: 0;
+        padding-inline: 10px;
+        width: 90%;
+        padding-block: 10px;
+
+    }
+
+    .section {
+        padding-left: 25px;
+    }
+
+    .headerContainerContent {
+        height: 80px;
+    }
+
+}
+
+@media (max-width: 1255px) {
+
+    .detailsCard {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .alignArrowLeft {
+        display: none;
+    }
+}
+
+@media (min-width: 460px) {
+
+    .detailsCard {
+        margin-left: 48px;
+        gap: 36px;
+    }
+}
+
+@media (max-width: 390px) {
+    .overlayCenter {
+        margin: unset !important;
+    }
+}
+
+@media (max-width: 375px) {
+    .contentContainerPadding:has(.containerOfBoard) {
+        padding-top: 48px !important;
+    }
+
+    /* .addContactInputContainer{
+        height: 25px !important;
+    } */
+
+    .addContactButtonSection {
+        margin: unset !important;
+        gap: unset !important;
+        padding-top: 12px !important;
+    }
+
+    .addContactButtonSection:has(#deleteContactFromEditOverlay) {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 16px !important;
+        width: 100% !important;
+    }
+
+    .addContactButtonSection:has(#deleteContactFromEditOverlay) .addContactButton {
+        margin-top: 0 !important;
+    }
+
+    .addContactButtonSection:not(:has(#deleteContactFromEditOverlay)) {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0 !important;
+        width: 100% !important;
+    }
+
+    .addContactButton {
+        gap: unset !important;
+    }
+
+    .addContactPushUpContainerRight {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
+@media (max-height: 950px) {
+    .addTaskContainerPadding:has(.addTaskMainSectionContent) {
+        padding-top: 60px;
+    }
+}

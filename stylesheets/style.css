@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #F6F7F8;
+    overflow: hidden;
+    height: 100vh;
+}
+
+body:has(.containerOfBoard) {
+    overflow: auto;
+}
+
+.board-page body {
+    overflow: auto;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.width110 {
+    width: 110px !important;
+    background-color: #F6F7F8 !important;
+}
+
+.templteTitle {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    width: auto;
+    height: 73px;
+    max-width: 625px;
+}
+
+.redirectionTags{
+    color: black
+}
+
+redirectionTags :hover{
+    color:rgb(0, 106, 255);
+    cursor: hover;
+}
+
+.overflowHidden {
+    overflow: hidden !important;
+}

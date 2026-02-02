@@ -1,0 +1,42 @@
+.contentContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: 232px;
+    background-color: #F6F7F8;
+    height: calc(100vh - 96px);
+    overflow: hidden;
+}
+
+.contentContainerPadding {
+    padding-left: 116px;
+    padding-right: 96px;
+    padding-top: 110px;
+    padding-bottom: 127px;
+    height: calc(100vh - 237px);
+    overflow-y: auto;
+}
+
+.summaryMainSection {
+    height: 100%;
+    overflow: hidden;
+}
+
+.contentContainer:has(.containerOfBoard) {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+.contentContainerPadding:has(.containerOfBoard) {
+    height: auto !important;
+    overflow: visible !important;
+}
+
+.containerOfBoard {
+    margin-left: 54px !important;
+    margin-right: 88px !important;
+    margin-top: 79.5px !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+}

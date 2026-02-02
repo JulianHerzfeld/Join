@@ -1,0 +1,229 @@
+@media (max-width: 1024px) {
+    #overlay {
+        background-color: #2A3647;
+    }
+
+    .signUpPageLogo {
+        position: absolute;
+        width: 64px;
+        height: 78.3px;
+        top: 38px;
+        left: 38px;
+    }
+
+    .loginPageMoveLogo {
+        position: absolute;
+        width: 64px;
+        height: 78.3px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: moveLogoMobile 0.5s ease forwards;
+        animation-delay: 0.3s;
+        z-index: 101;
+        filter: brightness(10) saturate(0);
+        transition: filter 0.25s ease 0.45s, opacity 0.25s ease 0.45s;
+    }
+
+    @keyframes moveLogoMobile {
+        0% {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            filter: brightness(10) saturate(0);
+        }
+
+        100% {
+            top: 38px;
+            left: 38px;
+            transform: translate(0, 0) scale(1);
+            filter: none;
+        }
+    }
+
+    .loginPageMainContentHeadline {
+        font-size: 47px;
+
+    }
+
+    .loginPageMainContentSeperator {
+        width: 90px;
+        margin-bottom: 32px;
+    }
+
+    .loginPageMainContentInputs {
+        margin-bottom: -30px;
+    }
+
+    .loginPageMainContentButtons {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding-bottom: 32px;
+    }
+
+    .loginPageGuestLogInButton,
+    .loginPageLogInButton {
+        width: 180px;
+        height: 51px;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .signUpInputContainer {
+        height: 46px;
+        width: 364px;
+    }
+
+    .loginInputContainerWithValidation:has(.signUpValidationInputContainer) .signUpValidationInputContainer {
+        height: 46px;
+    }
+
+    .loginPageMainContentHeadline {
+        height: 475px;
+        width: 396px;
+    }
+
+    .loginPageHeader {
+        width: 64px;
+        height: 78.3px;
+        display: none;
+    }
+
+    .signUpInputContainer {
+        width: 100%;
+    }
+
+    .signUpValidationInputContainer {
+        width: 100%;
+    }
+
+    .buttonPrimary {
+        margin-top: 38px;
+        height: 51px;
+        font-size: 16px;
+    }
+
+    .loginPageMainContent {
+        max-height: 475px;
+    }
+
+    .loginPageMainContent:has(.buttonPrimary) .buttonPrimary {
+        margin-top: 70px;
+    }
+
+    .signUpPageMainContent:has(.buttonPrimary) .buttonPrimary {
+        width: 180px;
+    }
+
+    .signUpPageInputSection {
+        max-height: unset;
+    }
+
+    .loginPageHeaderMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+        margin-bottom: 40px;
+        margin-top: 10px;
+    }
+
+    .signUpMobile {
+        width: 104px !important;
+        height: 49px !important;
+        font-size: 16px !important;
+        margin-top: 0 !important;
+    }
+
+    .signUpPageFooter {
+        padding-top: 10px;
+        /* top: unset; */
+    }
+
+    .signUpPageMainContent {
+        margin-top: 165px;
+    }
+
+    .loginPageMainContentHeadline {
+        width: auto;
+        padding-top: 32px;
+    }
+
+    .submenu p {
+        width: 70%;
+    }
+
+
+    .submenu a {
+        width: 70%;
+    }
+
+    .signUpPageMainSection:has(.signUpValidationInputContainer) .signUpValidationInputContainer {
+        height: 46px;
+    }
+
+    .signUpAcceptPrivacyContent {
+        padding-top: 15px;
+    }
+
+    .signUpArrowButton {
+        top: 40px;
+    }
+
+    .signUpArrowButton:hover {
+        top: 40px;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .signUpArrowButton {
+        left: 20px;
+    }
+
+    .signUpArrowButton:hover {
+        left: 18px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .loginPageHeaderMobile {
+        display: none;
+    }
+}
+
+@media (max-height: 900px) {
+
+    .loginPageMainContent {
+        margin-top: 80px;
+    }
+
+    .loginPageFooter {
+       margin-bottom: -110px;
+    }
+
+    .contentLimitation {
+        overflow-y: scroll;
+    }
+
+    .signUpPageMainContent {
+        max-height: 595px;
+    }
+
+    .contentContainer {
+        overflow: auto;
+    }
+
+    .summaryMainSection {
+        overflow: auto;
+    }
+}
+
+@media (max-height: 780px) {
+    .signUpPageFooter {
+        margin-top: 110px;
+        top: unset;
+    }
+}

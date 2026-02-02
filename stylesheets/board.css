@@ -1,0 +1,495 @@
+.containerOfBoard {
+    margin-left: 54px;
+    margin-right: 88px;
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+.headerContainerOfBoard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1920px;
+}
+
+.headerContainerFormAndButton {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.boardHeadlineContent {
+    display: flex;
+}
+
+.boardHeadlineAddButton {
+    display: none;
+}
+
+.searchForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: solid 1px;
+    border-color: #C9C9C9;
+    max-width: 310px;
+    height: 46px;
+    background-color: #FFFFFF;
+}
+
+.searchField {
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 20px;
+    padding-left: 16px;
+}
+
+.searchIcon {
+    width: 32px;
+    height: 32px;
+    padding-right: 16px;
+}
+
+.buttonaddTaskOnBoard {
+    width: 160px;
+    height: 48px;
+    cursor: pointer;
+    padding-inline: 16px;
+    padding-block: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.spaceHolderContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A8A8A8;
+    max-width: 246px;
+    height: 48px;
+    border: dashed 1px;
+    border-color: #A8A8A8;
+    border-radius: 10px;
+    background-color: #E7E7E7;
+}
+
+.boardProgressContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 48px;
+    gap: 19px;
+    min-height: fit-content;
+    padding-bottom: 50px;
+}
+
+.boardProgressColumn {
+    max-width: 262px;
+    flex: 1;
+    min-height: fit-content;
+}
+
+.boardProgressTitle {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    width: 244px;
+    margin-bottom: 8.5px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.boardCardContainer {
+    display: flex;
+    height: auto;
+    max-width: 220px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.08);
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 24px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+.boardCardContainer:hover {
+    animation: wobble 0.5s ease;
+}
+
+@keyframes wobble {
+  0%   { transform: translateX(0); }
+  25%  { transform: translateX(-5px); }
+  50%  { transform: translateX(5px); }
+  75%  { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.categoryFieldTechnicalTask {
+    color: white;
+    background-color: rgba(31, 215, 193, 1);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    padding-inline: 16px;
+    padding-block: 4px;
+}
+
+.categoryFieldUserStory {
+    color: white;
+    background-color: rgba(0, 56, 255, 1);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    padding-inline: 16px;
+    padding-block: 4px;
+}
+
+.titleOfTask {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(42, 54, 71, 1);
+}
+
+.descriptionOfTask {
+    color: rgba(168, 168, 168, 1);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.processBarContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 5px;
+}
+
+.progress {
+    max-width: 128px;
+    width: 100%;
+    height: 8px;
+    background: #F2F4F7;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progressBar {
+    height: 100%;
+    background: #3B82F6;
+    border-radius: inherit;
+    transition: width .3s ease;
+}
+
+.progressLabel {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+}
+
+.contactsAndPriorityContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.priorityIconBoard {
+    width: 32px;
+    height: 32px;
+}
+
+.boardCardContainerOverlay {
+    display: flex;
+    width: 445px;
+    flex-direction: column;
+    gap: 24px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 30px;
+    padding-inline: 20px;
+    padding-block: 28px;
+    max-height: 802px;
+    overflow-y: auto;
+}
+
+.boardCardContainerOverlay:has(.addTaskEditBoardOverlay) {
+    overflow-y: unset;
+}
+
+.editBoardOverlayButton {
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        max-width: 445px;
+    }
+
+.scrollBar {
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scrollbar-color: rgba(168, 168, 168, 1) white;
+    scrollbar-width: auto
+}
+
+.categoryFieldUserStoryOverlay {
+    color: white;
+    background-color: rgba(0, 56, 255, 1);
+    border-radius: 8px;
+    font-size: 23px;
+    font-weight: 400;
+    padding-inline: 24px;
+    padding-block: 4px;
+}
+
+.titleOfTaskOverlay {
+    font-size: 61px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 1)
+}
+
+.descriptionOfTaskOverlay {
+    color: rgba(0, 0, 0, 1);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.detailsOverlayContainer {
+    display: flex;
+    gap: 25px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.priorityImg {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 139px;
+}
+
+.contactBoardAssignedTo {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 19px;
+    font-weight: 400;
+    padding-left: 16px;
+}
+
+.separationLineGrey {
+    height: 24px;
+    background-color: #D1D1D1;
+    width: 1px;
+}
+
+.containerEditTaskOverlay {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    width: 100%;
+}
+
+.overlineHeadline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.closeOverlayBoardImg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.closeOverlayBoardImg:hover {
+    background-color: rgba(209, 209, 209, 1);
+    border-radius: 50px;
+}
+
+.subtaskText {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 1);
+}
+
+.cb {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    user-select: none;
+}
+
+label:hover {
+    background-color: #CACACB;
+    cursor: pointer;
+}
+
+.cbInput {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cbSvg {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.cbCheck {
+    opacity: 0;
+    transition: opacity .15s ease;
+}
+
+.cbBoxMasked {
+    display: none;
+}
+
+.cbInput:checked+.cbSvg .cbCheck {
+    opacity: 1;
+}
+
+.cbInput:checked+.cbSvg .cbBox {
+    display: none;
+}
+
+.cbInput:checked+.cbSvg .cbBoxMasked {
+    display: block;
+}
+
+.avatarBoard {
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    font-weight: 400;
+    font-size: 12px;
+    border: solid 2px;
+    border-color: white;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    margin-right: -8px;
+}
+
+.avatarBoardDetails {
+    border-radius: 50%;
+    display: flex;
+    font-weight: 400;
+    font-size: 12px;
+    border: solid 2px;
+    border-color: white;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+}
+
+.contactBoardDetailsContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    padding-inline: 16px;
+    padding-block: 2px;
+    flex-direction: row;
+}
+
+.assignedContactsList {
+    display: block;
+    max-height: 750px;
+    min-height: 100px;
+    height: auto;
+    overflow-y: auto;
+    margin-block: 4px 8px;
+    padding-right: 4px;
+}
+
+.subtasksList {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    min-height: 100px;
+    height: auto;
+    overflow-y: auto;
+    margin-block: 4px 8px;
+    padding-right: 4px;
+    gap: 4px;
+}
+
+.subtasksList .cb {
+    display: flex;
+}
+
+.boardContactsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.addNewTeskImg {
+    cursor: pointer;
+}
+
+.boardLaneBody.dropActive {
+    background: rgba(42, 54, 71, 0.06);
+}
+
+.dropPlaceholder {
+    box-sizing: border-box;
+    width: 100%;
+    border: 2px dashed #2A3647;
+    border-radius: 12px;
+    background: rgba(42, 54, 71, 0.04);
+    margin: 8px 0;
+}
+
+.boardCardContainer.insertionBefore {
+    position: relative;
+}
+
+.boardCardContainer.insertionBefore::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -6px;
+}
+
+.boardLaneBody.dropAtEnd {
+    position: relative;
+}
+
+.boardLaneBody.dropAtEnd::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: 4px;
+}
+
+.boardCardContainer.dragging {
+    opacity: 0.6;
+    transform: scale(0.98);
+}
+
+.aroundOverlayContainer{
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 30px;
+    overflow: hidden;
+
+}

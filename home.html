@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+
+    <link rel="stylesheet" href="./stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/assets.css">
+    <link rel="stylesheet" href="./stylesheets/header.css">
+    <link rel="stylesheet" href="./stylesheets/navigationBar.css">
+    <link rel="stylesheet" href="./stylesheets/contentContainer.css">
+    <link rel="stylesheet" href="./stylesheets/summary.css">
+    <link rel="stylesheet" href="./stylesheets/buttons.css">
+    <link rel="stylesheet" href="./stylesheets/fonts.css">
+    <link rel="stylesheet" href="./stylesheets/login.css">
+    <link rel="stylesheet" href="./stylesheets/signUp.css">
+    <link rel="stylesheet" href="./stylesheets/addContactPushUp.css">
+    <link rel="stylesheet" href="./stylesheets/contacts.css">
+    <link rel="stylesheet" href="./stylesheets/overlays.css">
+    <link rel="stylesheet" href="./stylesheets/board.css">
+    <link rel="stylesheet" href="./stylesheets/addTask.css">
+    <link rel="stylesheet" href="./stylesheets/addTaskOverlay.css">
+    <link rel="stylesheet" href="./stylesheets/mobile/boardMobile.css">
+    <link rel="stylesheet" href="./stylesheets/mobile/mobile.css">
+    <link rel="stylesheet" href="./stylesheets/mobile/addTaskMobile.css">
+    <link rel="stylesheet" href="./stylesheets/mobile/loginquerie.css">
+    <link rel="stylesheet" href="./stylesheets/mobile/contactsMobile.css">
+
+    <script src="./js/templatesContacts.js"></script>
+    <script src="./js/templateRender.js"></script>
+    <script src="./js/addTask.js"></script>
+    <script src="./js/addTask2.js"></script>
+    <script src="./js/templates.js"></script>
+    <script src="./js/navigationBar.js"></script>
+    <script src="./js/firebase.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/overlays.js"></script>
+    <script src="./js/contacts.js"></script>
+    <script src="./js/contactsPersistence.js"></script>
+    <script src="./js/validator.js"></script>
+    <script src="./js/board.js"></script>
+    <script src="./js/boardDragDrop.js"></script>
+    <script src="./js/summary.js"></script>
+</head>
+
+<body id="homeBody" onload="isUserLoggedIn()">
+
+    <div id="overlayRoot" class="overlay initalHiddenOverlay">
+        <div class="overlayCenter" onclick="event.stopPropagation()">
+            <div id="overlayPanel" class="overlayPanel"></div>
+        </div>
+    </div>
+
+    <div id="joinIconOverlay"></div>
+
+    <header id="header">
+        <div class="headerContainer">
+            <div class="headerContainerContent">
+                <span class="headerMainText">Kanban Project Management Tool</span>
+                <img class="headerJoinLogoMobile" src="./assets/img/joinSymbol.svg" alt="Join Logo">
+                <div id="menuIcons" class="headerIcons">
+                    <img data-file="./htmlTemplates/help.html" class="helpIcon" src="./assets/icons/help.png"
+                        alt="help icon">
+
+                    <div class="userProfileCirle" onclick="showSubmenu()">
+                        <p id="userInitials"></p>
+                        <div id="submenu" class="submenu d-none">
+                            <p id="btnHelpe" class="submenuHelpButtonMobile submenuButton" data-file="./htmlTemplates/help.html">Help </p>
+                            <p class="submenuButton" data-file="./htmlTemplates/legalNotice.html">Legal Notice</a></p>
+                            <p class="submenuButton" data-file="./htmlTemplates/privacyPolicy.html">Privacy Policy</a></p>
+                            <p class="submenuButton"><a onclick="logout()">Log out</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="navContainer">
+        <div class="navContainerLogo">
+            <img class="joinIcon" src="assets/img/joinSymbolWhite.svg" alt="Join Icon">
+        </div>
+        <div id="navContainerMenu" class="navContainerMenu d-none" onclick="setGreetingMessage()">
+            <div class="navLine" data-file="./htmlTemplates/summary.html">
+                <img class="navIcon" src="assets/icons/summaryIcon.svg" alt="Summary Icon">
+                <p>Summary</p>
+            </div>
+            <div id="navLineAddTask" class="navLine" data-file="./htmlTemplates/addTask.html">
+                <img class="navIcon" src="assets/icons/addTaskIcon.svg" alt="Add Task Icon">
+                <p>Add Task</p>
+            </div>
+            <div class="navLine" data-file="./htmlTemplates/board.html">
+                <img class="navIcon" src="assets/icons/boardIcon.svg" alt="Board Icon">
+                <p>Board</p>
+            </div>
+            <div class="navLine" data-file="./htmlTemplates/contacts.html">
+                <img class="navIcon" src="assets/icons/contactIcon.svg" alt="Contact Icon">
+                <p>Contacts</p>
+            </div>
+        </div>
+
+        <div id="sitesNavContainer" class="navContainerSites d-none">
+            <div class="sitesNavContainer" data-file="./htmlTemplates/privacyPolicy.html">
+                <p>Privacy Policy</p>
+            </div>
+            <div class="sitesNavContainer" data-file="./htmlTemplates/legalNotice.html">
+                <p>Legal notice</p>
+            </div>
+        </div>
+
+    </div>
+<div id="overlayLoading" class="loadingPage">Loading...</div>
+    <div id="contentContainer" class="contentContainer"></div>
+
+    <section id="addTaskBoardOverlayMainSection" class="addTaskOverlayMainSection">
+        <span id="status" data-status="Todo"></span>
+        <div onclick="event.stopPropagation()" class="addTaskOverlayMainContainer">
+            <div class="addTaskMainSection">
+                <div class="addTaskHeadline">
+                    <h1>Add Task</h1>
+                </div>
+
+                <div class="addTaskMainContent">
+                    <div class="addTaskInputsLeftSide">
+                        <div class="addTaskTitleInputContent">
+                            <p>Title<span class="requiredStar">*</span></p>
+                            <div class="addTaskInputContainerWithValidation">
+                                <div id="addTasktTitleInputContainer" class="signUpValidationInputContainer bgWhite">
+                                    <input
+                                        onfocus="setFocusBorder('addTasktTitleInputContainer', 'addTasktTitleErrorContainer')"
+                                        onblur="removeFocusBorderCheckInputValue('addTasktTitleInputContainer', 'addTasktTitleInput', 'addTasktTitleErrorContainer')"
+                                        id="addTasktTitleInput" class="addTaskInputs defaultInput" type="title"
+                                        placeholder="Enter a title">
+                                </div>
+                                <div id="addTasktTitleErrorContainer" class="loginFormValidationErrorMessage"></div>
+                            </div>
+                        </div>
+                        <div class="addTaskDescriptionInputContent">
+                            <p>Description</p>
+                            <div class="addTaskDescriptionContainerWithValidation">
+                                <div id="addTaskDescriptionInputContainer"
+                                    class="addTaskDescriptionInputContainer bgWhite">
+                                    <textarea onfocus="setFocusBorder('addTaskDescriptionInputContainer')"
+                                        onblur="removeFocusBorder('addTaskDescriptionInputContainer')"
+                                        class="addTaskTextarea" name="Description" placeholder="Enter a Description"
+                                        id="addTaskTextarea"></textarea>
+                                    <img src="assets/icons/textarea_icon.svg" alt="resize icon">
+                                </div>
+                                <div class="loginFormValidationErrorMessage"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Due date<span class="requiredStar">*</span></p>
+                            <div class="addTaskInputContainerWithValidation">
+                                <div id="addTasktDateInputContainer" class="signUpValidationInputContainer bgWhite">
+                                    <input
+                                        onfocus="setFocusBorder('addTasktDateInputContainer', 'addTasktDateErrorContainer')"
+                                        onblur="removeFocusBorderCheckInputValue('addTasktDateInputContainer', 'addTasktDateInput', 'addTasktDateErrorContainer')"
+                                        id="addTasktDateInput" class="addTaskInputs defaultInput placeholderStyle"
+                                        required type="date">
+                                </div>
+                                <div id="addTasktDateErrorContainer" class="loginFormValidationErrorMessage"></div>
+                            </div>
+                        </div>
+                        <div class="addTaskRequiredInfo">
+                            <span class="requiredStar">*</span><span>This field is required</span>
+                        </div>
+                    </div>
+                    <div class="addTaskSeperator"></div>
+                    <div class="addTaskInputRightSide">
+                        <div class="paddingBottom24">
+                            <p>Priority</p>
+                            <div class="addTaskPriorityButtons">
+                                <button id="addTaskUrgentButton"
+                                    onclick="activatePriorityButton('addTaskUrgentButton','buttonUrgentActive','urgentButtonOff','urgentButtonOn')"
+                                    class="buttonUrgent prioButtonAddTask">Urgent <img id="urgentButtonOff"
+                                        class="buttonUrgentIcon" src="assets/icons/prio_high.svg"
+                                        alt="Urgent Button Icon"><img id="urgentButtonOn"
+                                        class="buttonUrgentIcon d-none" src="assets/icons/prio_high_white.svg"
+                                        alt="Urgent Button Icon"></button>
+                                <button id="addTaskMediumButton"
+                                    onclick="activatePriorityButton('addTaskMediumButton','buttonMediumActive','mediumButtonOff','mediumButtonOn')"
+                                    class="buttonMedium prioButtonAddTask buttonMediumActive">Medium <img
+                                        id="mediumButtonOff" class="buttonMediumIcon d-none"
+                                        src="assets/icons/prio_media.svg" alt="Medium Button Icon"><img
+                                        id="mediumButtonOn" class="buttonMediumIcon"
+                                        src="assets/icons/prio_media_white.svg" alt="Medium Button Icon"></button>
+                                <button id="addTaskLowButton"
+                                    onclick="activatePriorityButton('addTaskLowButton','buttonLowActive','lowButtonOff','lowButtonOn')"
+                                    class="buttonLow prioButtonAddTask">Low <img id="lowButtonOff" class="buttonLowIcon"
+                                        src="assets/icons/prio_low.svg" alt="Low Button Icon"><img id="lowButtonOn"
+                                        class="buttonLowIcon d-none" src="assets/icons/prio_low_white.svg"
+                                        alt="Low Button Icon"></button>
+                            </div>
+                        </div>
+                        <div class="paddingBottom24">
+                            <p>Assigned to</p>
+                            <div id="addTaskAssignedToDropdownContent" class="dropdown">
+                                <div onclick="toggleDropdownAssignedTo()" id="addTaskDropdownAssignedTo"
+                                    class="addTaskDropdownContainer bgWhite">
+                                    <span>Select contacts to assign</span>
+                                    <img class="dropdownDownIcon" src="assets/icons/dropdown-down.svg"
+                                        alt="Arrown down">
+                                </div>
+                                <div id="addTaskAddedContactIcons" class="addTaskAddedContactIcons"></div>
+                                <div id="addTaskDropdownSearchContent"
+                                    class="addTaskDropDownSection bgWhite boxShadow d-none">
+                                    <div class="addTaskDropdownContainerSearch">
+                                        <input onkeyup="searchContactsForTask()" id="addTaskSearchInput"
+                                            class="addTaskSearchInput" type="text">
+                                        <img onclick="toggleDropdownAssignedTo()" class="dropdownDownIcon"
+                                            src="assets/icons/dropdown-up.svg" alt="Arrown up">
+                                    </div>
+                                    <div class="dropdownContent">
+                                        <div id="assignedToContactContent" class="dropdownItemContainer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="paddingBottom24">
+                            <p>Category<span class="requiredStar">*</span></p>
+                            <div class="dropdown">
+                                <div id="addTaskCategoryDropdownContent" class="addTaskDropDownSection bgWhite">
+                                    <div id="addTaskCategoryHeaderContainer" onclick="toggleDropdownCategory()"
+                                        class="addTaskDropdownContainer bgWhite">
+                                        <span id="categoryDropdownHeader">Select task category</span>
+                                        <img id="dropdownDownIcon" class="dropdownDownIcon"
+                                            src="assets/icons/dropdown-down.svg" alt="Arrown down">
+                                        <img id="dropdownUpIcon" class="dropdownDownIcon d-none"
+                                            src="assets/icons/dropdown-up.svg" alt="Arrow up">
+                                    </div>
+                                    <div id="categoryDropdownContent" class="selectList d-none">
+                                        <div class="dropdownCategoryItem" data-value="Technical Task"
+                                            onclick="selectedCategory(this)">
+                                            <span>Technical Task</span>
+                                        </div>
+                                        <div class="dropdownCategoryItem" data-value="User Story"
+                                            onclick="selectedCategory(this)">
+                                            <span>User Story</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Subtasks</p>
+                            <div>
+                                <div id="subtaskInputContainer" class="subtaskInputContainer">
+                                    <input onkeydown="addSubtaskWithEnter()" onfocus="setFocusBorder('subtaskInputContainer')"
+                                        onblur="removeFocusBorder('subtaskInputContainer')" id="subtaskInput"
+                                        class="subtaskInput" type="text" placeholder="Add new subtask">
+                                    <div class="subtaskInputIconContainer">
+                                        <img onclick="clearSubtaskInput()" id="subtaskInputCancelButton"
+                                            class="subtaskInputIcon" src="assets/icons/cancle.svg"
+                                            alt="cancel x Icon">
+                                        <div class="subtaskSeperator"></div>
+                                        <img onclick="addSubtaskToList()" id="subtaskInputCheckButton"
+                                            class="subtaskInputIcon" src="assets/icons/check_black.svg"
+                                            alt="check Icon">
+                                    </div>
+                                </div>
+                                <div>
+                                    <div id="subtaskListContent">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="addTaskMainButtons">
+                    <button onclick="resetAddTaskSide()" class="buttonCancle">Clear <svg width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 6l12 12M18 6L6 18" />
+                        </svg></button>
+                    <button onclick="createTask()" class="buttonCreateTask">Create Task</button>
+                </div>
+                <div onclick="closeAddTaskOverlay()" class="addTaskBoarOverlayCloseButton"><img
+                        src="./assets/icons/close.svg" alt=""></div>
+            </div>
+            <div id="addTaskBoardOverlay" class="addTaskOverlay d-none">
+                <div id="addTaskOverlay" class="addTaskOverlayContent">Task added to board <img
+                        src="assets/icons/boardIcon.svg" alt="board Icon"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

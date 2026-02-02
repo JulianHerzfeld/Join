@@ -1,0 +1,209 @@
+@media (max-width: 1300px) {
+    .addTaskContainerPadding {
+        padding-right: 0;
+        padding-left: 60px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .addTaskContainerPadding {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 48px;
+        padding-bottom: unset;
+    }
+
+    .addTaskMainSectionContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .addTaskMainContent p {
+        font-size: 16px;
+    }
+
+    button.prioButtonAddTask {
+        height: 41px;
+        font-size: 16px;
+    }
+
+    .defaultInput {
+        height: 20px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .addTaskInputContainerWithValidation {
+        height: 56px;
+    }
+
+    .signUpValidationInputContainer {
+        height: 38px;
+    }
+
+    .loginFormValidationErrorMessage {
+        font-size: 16px;
+        height: 12px;
+    }
+
+    .addTaskDescriptionInputContent {
+        height: 131px;
+    }
+
+    .addTaskDescriptionContainerWithValidation {
+        height: 104px;
+    }
+
+    .addTaskDescriptionInputContainer {
+        height: 86px;
+    }
+
+    .addTaskTextarea {
+        margin: 18px 21px;
+        height: unset;
+        font-size: 16px;
+    }
+
+    .dropdown span {
+        font-size: 16px;
+
+    }
+
+    .addTaskSearchInput {
+        font-size: 16px;
+        height: 19px;
+    }
+
+    .avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+    .dropdownCategoryItem {
+        height: 43px;
+    }
+
+    .subtaskInputContainer {
+        height: 41px;
+        margin-bottom: 4px;
+    }
+
+    /* .subtaskListContent {
+        max-height: unset;
+        overflow-y: unset;
+    } */
+
+    .subtaskInput {
+        font-size: 16px;
+        height: 19px;
+    }
+
+    .subtaskItem {
+        height: 48px;
+        margin-top: 4px;
+    }
+
+    .subtaskItemEdit {
+        height: 48px;
+    }
+
+    .addTaskHeadline {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 32px;
+        position: sticky;
+        background-color: #F6F7F8;
+        max-width: 398px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .contentContainer:has(.addTaskMainSectionContent) {
+        margin-bottom: unset;
+    }
+
+    .addTaskContainerPadding:has(.addTaskMainSectionContent) {
+        padding-bottom: unset;
+    }
+
+    .addTaskMainContent {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        overflow: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        max-height: calc(100vh - 400px);
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+
+    .addTaskInputsLeftSide,
+    .addTaskInputRightSide {
+        max-width: 398px;
+    }
+
+    .addTaskSeperator {
+        display: none;
+    }
+
+    .addTaskRequiredInfo {
+        display: none;
+    }
+
+    .addTaskRequiredInfoMobile {
+        display: block;
+        width: 100%;
+        max-width: 398px;
+    }
+
+    .addTaskMainButtons {
+        position: fixed;
+        bottom: 80px;
+        right: 16px;
+        left: 16px;
+        display: flex;
+        align-items: center;
+        height: 88px;
+        gap: 32px;
+        padding-right: unset;
+    }
+
+    .navIcon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .navLine p {
+        font-size: 14px;
+    }
+
+    .addTaskOverlayMainSection.show {
+        display: none;
+    }
+}
+
+@media (max-width: 400px) {
+    button.prioButtonAddTask {
+        font-size: 14px;
+    }
+
+    .addTaskPriorityButtons {
+        gap: 4px;
+    }
+
+    .addTaskMainButtons {
+        gap: 20px;
+    }
+
+    .buttonCreateTask {
+        font-size: 16px;
+    }
+
+    .buttonCancle {
+        font-size: 16px;
+    }
+}
