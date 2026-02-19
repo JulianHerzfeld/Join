@@ -69,8 +69,8 @@
                         <p id="userInitials"></p>
                         <div id="submenu" class="submenu d-none">
                             <p id="btnHelpe" class="submenuHelpButtonMobile submenuButton" data-file="./htmlTemplates/help.html">Help </p>
-                            <p class="submenuButton" data-file="./htmlTemplates/legalNotice.html">Legal Notice</a></p>
-                            <p class="submenuButton" data-file="./htmlTemplates/privacyPolicy.html">Privacy Policy</a></p>
+                            <p class="submenuButton" data-site="navbar-legal" data-file="./htmlTemplates/legalNotice.html">Legal Notice</a></p>
+                            <p class="submenuButton" data-site="navbar-privacy" data-file="./htmlTemplates/privacyPolicy.html">Privacy Policy</a></p>
                             <p class="submenuButton"><a onclick="logout()">Log out</a></p>
                         </div>
                     </div>
@@ -103,10 +103,10 @@
         </div>
 
         <div id="sitesNavContainer" class="navContainerSites d-none">
-            <div class="sitesNavContainer" data-file="./htmlTemplates/privacyPolicy.html">
+            <div class="sitesNavContainer" data-site="navbar-privacy" data-file="./htmlTemplates/privacyPolicy.html">
                 <p>Privacy Policy</p>
             </div>
-            <div class="sitesNavContainer" data-file="./htmlTemplates/legalNotice.html">
+            <div class="sitesNavContainer" data-site="navbar-legal" data-file="./htmlTemplates/legalNotice.html">
                 <p>Legal notice</p>
             </div>
         </div>

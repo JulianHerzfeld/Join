@@ -288,6 +288,22 @@
     }
 }
 
+@media (max-height: 740px) {
+    .boardCardContainerOverlay {
+        gap: 15px;
+    }
+
+    .assignedContactsList {
+        max-height: 100px;
+        margin-block: unset;
+    }
+
+    .subtasksList {
+        min-height: 54px;
+        max-height: 50px;
+    }
+}
+
 .loadingPage {
     display: none;
     position: fixed;

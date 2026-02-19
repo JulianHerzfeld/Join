@@ -404,6 +404,12 @@
     }
 }
 
+@media (min-height: 740px) {
+    .overlayCenter {
+        width: 95%;
+    }
+}
+
 @media (max-width: 460px) {
 
     .contactListBtnContainer {

@@ -56,7 +56,7 @@
     cursor: pointer;
 }
 
-.navLine.active {
+.navLine.active, .sitesNavContainer.active {
     background-color: #091931;
     color: white;
 }

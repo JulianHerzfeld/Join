@@ -25,11 +25,13 @@ let aPreviousPage = JSON.parse(sessionStorage.getItem('pageHistory')) || [];
 async function renderMainContent() {
   const content = document.getElementById('contentContainer');
   const items = document.querySelectorAll('.navLine');
-  const sites = document.querySelectorAll('.sitesNavContainer');
-  const buttons = document.querySelectorAll('.submenuButton');
-  setClickEvents(items, content);
-  setClickEvents(sites, content);
-  setClickEvents(buttons, content);
+  const allNavItems = [
+    ...document.querySelectorAll('.navLine'),
+    ...document.querySelectorAll('.sitesNavContainer'),
+    ...document.querySelectorAll('.submenuButton')
+  ];
+
+  setClickEvents(allNavItems, content);
   attachHelp(content);
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has('page')) openPageFromUrl(content);
@@ -53,14 +55,40 @@ function setClickEvents(items, content) {
   for (const item of items) {
     item.addEventListener('click', () => {
       const file = item.getAttribute('data-file');
-      const isStaticInfoPage = file === "./htmlTemplates/privacyPolicy.html" || file === "./htmlTemplates/legalNotice.html" || file === "./htmlTemplates/help.html";
-      const shouldClearActive = typeof isMobile === 'function' && isMobile() && isStaticInfoPage;
-      if (shouldClearActive) {clearAllActiveStates();
-      } else {markActive(items, item); }
-      if (file) {loadPage(file, content); }
-      aPreviousPage.push(file.replace("./htmlTemplates/", "").replace(".html", ""));
-      storePreviousPage(aPreviousPage);
+
+      clearAllActiveStates();
+      markActiveNavbarLinks(item);
+
+      item.classList.add('active');
+
+      if (file) {
+        loadPage(file, content);
+        aPreviousPage.push(file.replace("./htmlTemplates/", "").replace(".html", ""));
+        storePreviousPage(aPreviousPage);
+      }
     });
+  }
+}
+
+
+/**
+ * Sets the corresponding `.sitesNavContainer` to active
+ * when a `.submenuButton` is clicked.
+ *
+ * @param {HTMLElement} item - Clicked navigation element.
+ * @returns {void}
+ */
+function markActiveNavbarLinks(item) {
+  if (item.classList.contains('submenuButton')) {
+    const siteKey = item.dataset.site;
+
+    const matchingSite = document.querySelector(
+      `.sitesNavContainer[data-site="${siteKey}"]`
+    );
+
+    if (matchingSite) {
+      matchingSite.classList.add('active');
+    }
   }
 }
 
@@ -156,12 +184,12 @@ function showError(error, content) {
  */
 function openPageFromUrl(content) {
   const page = new URLSearchParams(window.location.search).get("page");
-  const files = { privacyPolicy: "./htmlTemplates/privacyPolicy.html", legalNotice: "./htmlTemplates/legalNotice.html"};
+  const files = { privacyPolicy: "./htmlTemplates/privacyPolicy.html", legalNotice: "./htmlTemplates/legalNotice.html" };
   const fileToOpen = files[page];
   if (!fileToOpen) return;
   const menuItem = document.querySelector(`[data-file="${fileToOpen}"]`);
   if (menuItem) {
-    menuItem.click(); 
+    menuItem.click();
     const path = menuItem.dataset.file;
     if (path === "./htmlTemplates/privacyPolicy.html" || path === "./htmlTemplates/legalNotice.html") { hideUserMenu(); } //For desktop
   }
@@ -220,13 +248,13 @@ function openAddTaskSide(sideLink) {
  * attempts to navigate back to the last registered page via `goBack()`.
  */
 window.addEventListener('load', () => {
-    try {
-        const historyArr = JSON.parse(sessionStorage.getItem('pageHistory') || '[]');
-        const loggedIn = sessionStorage.getItem('userfound') === 'true';
-        if (historyArr?.length >= 2 && loggedIn) {
-            goBack();
-        }
-    } catch (error) {
-        console.error("Error occurred while navigating:", error);
+  try {
+    const historyArr = JSON.parse(sessionStorage.getItem('pageHistory') || '[]');
+    const loggedIn = sessionStorage.getItem('userfound') === 'true';
+    if (historyArr?.length >= 2 && loggedIn) {
+      goBack();
     }
+  } catch (error) {
+    console.error("Error occurred while navigating:", error);
+  }
 });
