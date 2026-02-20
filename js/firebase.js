@@ -1,4 +1,4 @@
-const BASE_URL = "https://join-1326-ga-default-rtdb.europe-west1.firebasedatabase.app/";
+const BASE_URL = "https://join-portfolio-d48a7-default-rtdb.europe-west1.firebasedatabase.app/";
 
 let email;
 let password;
